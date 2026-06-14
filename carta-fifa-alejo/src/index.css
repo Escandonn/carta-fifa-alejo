@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-breathe: breathe 8s infinite ease-in-out;
+  --animate-eyeFade: eyeFade 10s infinite alternate ease-in-out;
+  --animate-handMove: handMove 12s infinite alternate ease-in-out;
+
+  @keyframes breathe {
+    0%, 100% { box-shadow: 0 0 30px rgba(0, 255, 80, 0.1); border-color: #0d1a00; }
+    50% { box-shadow: 0 0 60px rgba(0, 255, 100, 0.3); border-color: #1a3300; }
+  }
+  
+  @keyframes eyeFade {
+    from { opacity: 0.1; filter: sepia(1) saturate(5) hue-rotate(90deg); }
+    to { opacity: 0.3; filter: sepia(1) saturate(8) hue-rotate(120deg); }
+  }
+
+  @keyframes handMove {
+    0% { transform: translateY(0) rotate(35deg); }
+    100% { transform: translateY(-20px) rotate(45deg); }
+  }
+}
+
+body {
+  margin: 0;
+  background: #010501;
+  overflow: hidden;
+}
