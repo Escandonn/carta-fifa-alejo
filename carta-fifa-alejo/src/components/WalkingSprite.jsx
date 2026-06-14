@@ -31,15 +31,10 @@ export default function WalkingSprite() {
 
     const animate = () => {
       animationTimer++;
-      const isMobile = window.innerWidth <= 640;
 
       if (state === 'walking') {
-        if (!isMobile) {
-          xPos += moveSpeed;
-          if (xPos > window.innerWidth) xPos = -180;
-        } else {
-          xPos = window.innerWidth / 2; // Center horizontally on mobile
-        }
+        xPos += moveSpeed;
+        if (xPos > window.innerWidth) xPos = -180;
 
         if (animationTimer % 10 === 0) {
           frame++;
@@ -50,9 +45,6 @@ export default function WalkingSprite() {
           }
         }
       } else if (state === 'greeting') {
-        if (isMobile) {
-          xPos = window.innerWidth / 2; // Keep centered on mobile
-        }
         if (animationTimer % 10 === 0) {
           frame++;
           if (frame > 10) {
@@ -66,13 +58,8 @@ export default function WalkingSprite() {
       }
 
       if (imgRef.current) {
-        if (isMobile) {
-          imgRef.current.style.transform = 'translateX(-50%)';
-          imgRef.current.style.left = `${xPos}px`;
-        } else {
-          imgRef.current.style.transform = 'none';
-          imgRef.current.style.left = `${xPos}px`;
-        }
+        imgRef.current.style.transform = 'none';
+        imgRef.current.style.left = `${xPos}px`;
 
         const folder = state === 'walking' ? 'fotogramas-alejo' : 'saludo';
         const newSrc = `${folder}/${frame}.png`;
