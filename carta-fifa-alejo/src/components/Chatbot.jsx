@@ -76,12 +76,17 @@ export default function Chatbot() {
 
   if (!isOpen) {
     return (
-      <button 
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-[#00ff66] text-black rounded-full flex items-center justify-center shadow-[0_0_15px_#00ff66] hover:scale-110 transition-transform z-50"
-      >
-        <MessageSquare size={24} />
-      </button>
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2">
+        <div className="bg-black/80 text-[#00ff66] px-3 py-1 rounded-md border border-[#00ff66]/30 text-[10px] sm:text-xs font-mono font-bold shadow-[0_0_10px_rgba(0,255,100,0.2)] uppercase tracking-wider animate-pulse text-center">
+          Chatea con IA
+        </div>
+        <button 
+          onClick={() => setIsOpen(true)}
+          className="w-14 h-14 bg-[#00ff66] text-black rounded-full flex items-center justify-center shadow-[0_0_15px_#00ff66] hover:scale-110 transition-transform"
+        >
+          <MessageSquare size={24} />
+        </button>
+      </div>
     );
   }
 
